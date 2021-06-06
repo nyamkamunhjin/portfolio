@@ -1,0 +1,50 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "npm run lint:tsc && npm run lint:eslint && npm run lint:prettier",
+    "lint:tsc": "tsc --noEmit",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:prettier": "prettier --check .",
+    "fix": "npm run fix:eslint && npm run fix:prettier",
+    "fix:eslint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+    "fix:prettier": "prettier --write .",
+    "lint:conflict": "eslint-config-prettier .eslintrc.json",
+    "postinstall": "typesync",
+    "check": "typesync && npm outdated && npm audit && npm run lint:conflict && npm run lint && npm run dev"
+  },
+  "dependencies": {
+    "framer-motion": "^4.1.17",
+    "next": "10.2.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^7.2.12",
+    "@types/node": "^15.6.1",
+    "@types/prettier": "^2.2.3",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "autoprefixer": "^10.2.6",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.3.0",
+    "prettier": "2.3.0",
+    "tailwindcss": "^2.1.2",
+    "typescript": "^4.3.2",
+    "typesync": "^0.8.0"
+  }
+}
