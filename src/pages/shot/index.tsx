@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { FC } from 'react';
+import { NextPage } from 'next';
+import React from 'react';
 
-const Shot: FC = () => (
+const Shot: NextPage = () => (
   <div className="flex items-center justify-center bg-gray-50 h-screen gap-52 p-80">
     <div className="w-80 flex flex-col items-start gap-4">
       <p className="text-3xl font-bold text-gray-700">
