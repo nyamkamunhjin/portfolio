@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
 
@@ -30,6 +31,14 @@ class MyDocument extends Document<unknown> {
         <body>
           <Main />
           <NextScript />
+          <a href="https://cloud.mn/" target="_blank" rel="noreferrer">
+            <img
+              src="https://iframe-nyamkamunhjin.herokuapp.com"
+              width="200px"
+              height="60px"
+              alt="Powered By Cloud.mn"
+            />
+          </a>
         </body>
       </Html>
     );
