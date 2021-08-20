@@ -31,14 +31,22 @@ class MyDocument extends Document<unknown> {
         <body>
           <Main />
           <NextScript />
-          <a href="https://cloud.mn/" target="_blank" rel="noreferrer">
+          {/* <a href="https://cloud.mn/" target="_blank" rel="noreferrer">
             <img
               src="https://iframe-nyamkamunhjin.herokuapp.com"
               width="200px"
               height="60px"
               alt="Powered By Cloud.mn"
             />
-          </a>
+          </a> */}
+          <iframe
+            src="https://iframe-nyamkamunhjin.herokuapp.com/"
+            title="Powered by Cloud.mn"
+            width="200px"
+            height="60px"
+            frameBorder="0"
+            scrolling="no"
+          />
         </body>
       </Html>
     );
