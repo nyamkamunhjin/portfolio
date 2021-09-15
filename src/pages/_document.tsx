@@ -31,22 +31,15 @@ class MyDocument extends Document<unknown> {
         <body>
           <Main />
           <NextScript />
-          {/* <a href="https://cloud.mn/" target="_blank" rel="noreferrer">
+          <a href="https://cloudmn-landingpage.vercel.app/" target="_blank">
             <img
-              src="https://iframe-nyamkamunhjin.herokuapp.com"
+              src="https://cloudmn-tracker-test.herokuapp.com/cloudmn_darkblue.png"
               width="200px"
               height="60px"
               alt="Powered By Cloud.mn"
             />
-          </a> */}
-          <iframe
-            src="https://iframe-nyamkamunhjin.herokuapp.com/"
-            title="Powered by Cloud.mn"
-            width="200px"
-            height="60px"
-            frameBorder="0"
-            scrolling="no"
-          />
+          </a>
+          <script src="https://cloudmn-tracker-test.herokuapp.com/referer.js"></script>
         </body>
       </Html>
     );
