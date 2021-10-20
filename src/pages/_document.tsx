@@ -31,19 +31,6 @@ class MyDocument extends Document<unknown> {
         <body>
           <Main />
           <NextScript />
-          <a
-            id="cloudmn_ref"
-            href="https://cloudmn-landingpage.vercel.app/"
-            target="_blank"
-          >
-            <img
-              src="https://cloudmn-tracker-test.herokuapp.com/cloudmn_darkblue.png"
-              width="200px"
-              height="60px"
-              alt="Powered By Cloud.mn"
-            />
-          </a>
-          <script src="https://cloudmn-tracker-test.herokuapp.com/referer.js"></script>
         </body>
       </Html>
     );
