@@ -158,29 +158,31 @@ const MainPage: NextPage = () => {
           Wave at me 🌙
         </motion.p>
 
-        <motion.p
-          className="text-5xl font-bold max-w-md mx-auto text-white text-center font-mono"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                delay: 0.6,
-                duration: 1,
+        {currentAccount && (
+          <motion.p
+            className="text-5xl font-bold max-w-md mx-auto text-white text-center font-mono"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  delay: 0.6,
+                  duration: 1,
+                },
               },
-            },
-          }}
-        >
-          Total{' '}
-          <span
-            className={` font-semibold text-6xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
+            }}
           >
-            {currentWaveCount}
-          </span>{' '}
-          🌊
-        </motion.p>
+            Total{' '}
+            <span
+              className={` font-semibold text-6xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
+            >
+              {currentWaveCount}
+            </span>{' '}
+            🌊
+          </motion.p>
+        )}
         {/* connect to metamask */}
         {currentAccount && (
           <NameComponent
