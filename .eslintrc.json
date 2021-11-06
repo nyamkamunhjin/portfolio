@@ -5,6 +5,7 @@
     "node": true
   },
   "extends": [
+    "plugin:@next/next/recommended",
     "plugin:react/recommended",
     "airbnb",
     "airbnb/hooks",
@@ -34,6 +35,7 @@
   ],
   "root": true,
   "rules": {
+    "react/require-default-props": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "no-use-before-define": "off",
     "no-shadow": "off",

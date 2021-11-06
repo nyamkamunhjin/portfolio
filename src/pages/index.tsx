@@ -101,7 +101,7 @@ const Ticket: React.FC<Ticket> = ({
   </motion.div>
 );
 
-const Card: NextPage = () => {
+const MainPage: NextPage = () => {
   const [ticketColor, setTicketColor] =
     React.useState<TicketColor>('greenBlue');
 
@@ -188,4 +188,4 @@ const Card: NextPage = () => {
   );
 };
 
-export default Card;
+export default MainPage;
