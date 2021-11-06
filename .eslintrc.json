@@ -13,7 +13,7 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -35,6 +35,9 @@
   ],
   "root": true,
   "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-floating-promises": "off",
     "react/require-default-props": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "no-use-before-define": "off",
@@ -94,14 +97,6 @@
       "error",
       {
         "extensions": [".jsx", "tsx"]
-      }
-    ],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "html": "enforce",
-        "custom": "enforce",
-        "explicitSpread": "ignore"
       }
     ]
   },

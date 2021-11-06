@@ -1,21 +1,33 @@
-/* eslint-disable react/no-unescaped-entities */
-import { Loading, NameComponent, Ticket } from 'components';
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @next/next/no-img-element */
+import { Button, Loading, NameComponent, WaveCard } from 'components';
 import { ethers } from 'ethers';
 import { motion } from 'framer-motion';
-import { Gradients, TicketColor } from 'interfaces';
+import { Gradients, ICleanedWave, IWave, TicketColor } from 'interfaces';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { FaEthereum } from 'react-icons/fa';
 import abi from 'utils/WavePortal.json';
 
 const MainPage: NextPage = () => {
-  const [ticketColor, setTicketColor] = useState<TicketColor>('greenBlue');
   const [currentAccount, setCurrentAccount] = useState('');
   const [currentWaveCount, setCurrentWaveCount] = useState(0);
+  const [currentWaves, setCurrentWaves] = useState<ICleanedWave[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const watchSeletedColor = watch('color', 'greenBlue' as TicketColor);
+
   /* WavePortal contract address */
-  const contractAddress = '0x3663db2460ED3607b569403834620e8f57486d84';
+  const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
   const contractABI = abi.abi;
 
   const checkIfWalletIsConnected = async () => {
@@ -27,17 +39,17 @@ const MainPage: NextPage = () => {
 
       if (!ethereum) {
         console.log('Make sure you have metamask!');
+
         return;
-      } else {
-        console.log('We have the ethereum object', ethereum);
       }
+      console.log('We have the ethereum object', ethereum);
 
       /*
        * Check if we're authorized to access the user's wallet
        */
       const accounts = await ethereum.request({ method: 'eth_accounts' });
 
-      if (accounts.length > 0) {
+      if (accounts?.length > 0) {
         const account = accounts[0];
         console.log('Found an authorized account:', account);
         setCurrentAccount(account);
@@ -55,6 +67,7 @@ const MainPage: NextPage = () => {
 
       if (!ethereum) {
         alert('Get MetaMask');
+
         return;
       }
 
@@ -72,7 +85,7 @@ const MainPage: NextPage = () => {
     try {
       const { ethereum } = window as any;
 
-      if (ethereum) {
+      if (ethereum && contractAddress) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(
@@ -81,7 +94,7 @@ const MainPage: NextPage = () => {
           signer,
         );
 
-        let count = await wavePortalContract.getTotalWaves();
+        const count = await wavePortalContract.getTotalWaves();
         setCurrentWaveCount(count.toNumber());
       } else {
         console.log("Ethereum object doesn't exist!");
@@ -91,11 +104,47 @@ const MainPage: NextPage = () => {
     }
   };
 
-  const wave = async () => {
+  const getAllWaves = async () => {
     try {
       const { ethereum } = window as any;
 
-      if (ethereum) {
+      if (ethereum && contractAddress) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const wavePortalContract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer,
+        );
+
+        const waves = await wavePortalContract.getAllWaves();
+
+        const wavesCleaned: ICleanedWave[] = (waves as IWave[]).map((each) => ({
+          address: each.waver,
+          timestamp: new Date(each.timestamp * 1000),
+          message: each.message,
+          color: each.color as TicketColor,
+        }));
+
+        wavesCleaned.sort(
+          (a, b) => b.timestamp.getTime() - a.timestamp.getTime(),
+        );
+
+        console.log(wavesCleaned);
+        setCurrentWaves(wavesCleaned || []);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const wave = async (message: string, color: string) => {
+    try {
+      const { ethereum } = window as any;
+
+      if (ethereum && contractAddress) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(
@@ -110,7 +159,7 @@ const MainPage: NextPage = () => {
         /*
          * Execute the actual wave from your smart contract
          */
-        const waveTxn = await wavePortalContract.wave();
+        const waveTxn = await wavePortalContract.wave(message, color);
         console.log('Mining...', waveTxn.hash);
         setLoading(true);
 
@@ -121,6 +170,8 @@ const MainPage: NextPage = () => {
         count = await wavePortalContract.getTotalWaves();
         setCurrentWaveCount(count.toNumber());
         console.log('Retrieved total wave count:', count.toNumber());
+
+        await getAllWaves();
       } else {
         console.log("Ethereum object doesn't exist!");
       }
@@ -129,9 +180,15 @@ const MainPage: NextPage = () => {
     }
   };
 
+  const onSubmit = async (data: { message: string; color: TicketColor }) => {
+    console.log(data);
+    wave(data.message, data.color);
+  };
+
   useEffect(() => {
     checkIfWalletIsConnected();
     getWaveCount();
+    getAllWaves();
   }, []);
 
   return (
@@ -139,7 +196,7 @@ const MainPage: NextPage = () => {
       <Head>
         <title>Munkhjin Nyamdorj @nyamkamuhjin</title>
       </Head>
-      <div className="pt-20 bg-black min-w-full min-h-screen w-full h-full flex flex-col items-center gap-6 font-mono p-4">
+      <div className="pt-20 bg-black min-w-full min-h-screen w-full h-full flex flex-col items-center gap-6 font-mono p-4 pb-20">
         <motion.p
           className="text-8xl text-white font-bold text-center filter drop-shadow-sm"
           initial="hidden"
@@ -155,75 +212,10 @@ const MainPage: NextPage = () => {
             },
           }}
         >
-          Wave at me 🌙
+          mj here, Wave at me 👋🏻
         </motion.p>
-
-        {currentAccount && (
-          <motion.p
-            className="text-5xl font-bold max-w-md mx-auto text-white text-center font-mono"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  delay: 0.6,
-                  duration: 1,
-                },
-              },
-            }}
-          >
-            Total{' '}
-            <span
-              className={` font-semibold text-6xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients[ticketColor]}`}
-            >
-              {currentWaveCount}
-            </span>{' '}
-            🌊
-          </motion.p>
-        )}
-        {/* connect to metamask */}
-        {currentAccount && (
-          <NameComponent
-            username={currentAccount}
-            icon={<FaEthereum className="text-2xl" />}
-          />
-        )}
-        {currentAccount === '' ? (
-          <button
-            className={`flex gap-4 items-center justify-center max-w-md w-full rounded-lg font-code px-4 py-3 text-white bg-gradient-to-r animate-gradient-xy transform-gpu transition hover:text-gray-200 hover:scale-105 ${Gradients.pinkRedYellow}`}
-            onClick={connectWallet}
-          >
-            <img
-              src="https://docs.metamask.io/metamask-fox.svg"
-              alt="metamask logo"
-              className="w-7"
-            />
-            <span>Connect to MetaMask</span>
-          </button>
-        ) : (
-          <button
-            className={`flex gap-4 items-center justify-center max-w-md w-full rounded-lg font-code px-4 py-3 text-white bg-gradient-to-r animate-gradient-xy ${Gradients.pinkRedYellow}`}
-          >
-            <img
-              src="https://docs.metamask.io/metamask-fox.svg"
-              alt="metamask logo"
-              className="w-7"
-            />
-            <span>Connected</span>
-          </button>
-        )}
-        {/* wave with some eth */}
-        <button
-          className={`flex gap-4 items-center justify-center max-w-md w-full rounded-lg font-code px-4 py-3 text-white bg-gradient-to-r animate-gradient-xy transform-gpu transition hover:text-gray-200 hover:scale-105 ${Gradients.greenBluePurple}`}
-          onClick={wave}
-        >
-          {loading ? <Loading className="w-7 animate-spin" /> : 'Wave at Me 👋🏻'}
-        </button>
-        {/* ticket color chooser */}
-        <motion.div
-          className="flex gap-2 mt-10 flex-wrap justify-center"
+        <motion.p
+          className="text-8xl text-white font-bold text-center filter drop-shadow-sm"
           initial="hidden"
           animate="visible"
           variants={{
@@ -231,32 +223,133 @@ const MainPage: NextPage = () => {
             visible: {
               opacity: 1,
               transition: {
-                delay: 0.6,
+                delay: 0.4,
                 duration: 1,
               },
             },
           }}
-        >
-          {Object.keys(Gradients).map((each) => (
-            <button
-              className={`rounded-lg font-code p-1 bg-black text-white w-48 bg-gradient-to-r ${
-                Gradients[each as TicketColor]
-              }`}
-              key={each}
-              onClick={() => setTicketColor(each as TicketColor)}
-              type="button"
-            >
-              <div className="rounded-lg bg-black px-4 py-2">{each}</div>
-            </button>
-          ))}
-        </motion.div>
-
-        <Ticket
-          username="nyamkamunhjin"
-          name="Munkhjin Nyamdorj"
-          avatar="https://github.com/nyamkamunhjin.png"
-          ticketColor={ticketColor}
         />
+        <div className="max-w-xl w-full mx-auto flex flex-col gap-4 items-center">
+          {currentAccount && (
+            <motion.p
+              className="text-5xl font-bold max-w-md mx-auto text-white text-center font-mono mb-10"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    delay: 0.6,
+                    duration: 1,
+                  },
+                },
+              }}
+            >
+              Total{' '}
+              <span
+                className={` font-semibold text-6xl text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.greenBluePurple}`}
+              >
+                {currentWaveCount}
+              </span>{' '}
+              🌊
+            </motion.p>
+          )}
+          {/* connect to metamask */}
+          {currentAccount && (
+            <NameComponent
+              username={currentAccount}
+              icon={<FaEthereum className="text-2xl" />}
+            />
+          )}
+          {currentAccount === '' ? (
+            <Button type="button" color="pinkRedYellow" onClick={connectWallet}>
+              <img
+                src="https://docs.metamask.io/metamask-fox.svg"
+                alt="metamask logo"
+                className="w-7"
+              />
+              <span>Connect to MetaMask</span>
+            </Button>
+          ) : (
+            <Button color="pinkRedYellow">
+              <img
+                src="https://docs.metamask.io/metamask-fox.svg"
+                alt="metamask logo"
+                className="w-7"
+              />
+              <span>Connected</span>
+            </Button>
+          )}
+          {/* wave with some eth */}
+          <form
+            className="mt-10 flex flex-col gap-4 w-full items-center"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <textarea
+              rows={4}
+              className="w-full rounded-lg p-2"
+              placeholder="Type something cool..."
+              {...register('message', { required: true })}
+            />
+            {errors.message && (
+              <span className="w-full text-red-400">
+                Message is required to wave 👋🏻
+              </span>
+            )}
+            <select
+              className={`w-full py-3 px-2 rounded-lg appearance-none bg-gradient-to-r animate-gradient-x font-code font-semibold text-white ${
+                Gradients[watchSeletedColor as TicketColor]
+              }`}
+              {...register('color', { required: true })}
+              defaultValue={Gradients.greenBlue}
+            >
+              <option className="text-black" value="greenBlue">
+                Green Blue
+              </option>
+              <option className="text-black" value="pinkPurpleIndigo">
+                Pink Purple Indigo
+              </option>
+              <option className="text-black" value="pinkRedYellow">
+                Pink Red Yellow
+              </option>
+              <option className="text-black" value="greenBluePurple">
+                Green Blue Purple
+              </option>
+              <option className="text-black" value="spearmint">
+                Spearmint
+              </option>
+              <option className="text-black" value="mojave">
+                Mojave
+              </option>
+            </select>
+            {errors.color && (
+              <span className="w-full text-red-400">
+                Color is required to wave 👋🏻
+              </span>
+            )}
+            <Button type="submit" color="greenBluePurple">
+              {loading ? (
+                <Loading className="w-7 animate-spin" />
+              ) : (
+                'Wave at me with a message 👋🏻'
+              )}
+            </Button>
+          </form>
+        </div>
+        <div className="max-w-xl w-full flex flex-col items-start gap-4">
+          <h2 className="text-2xl text-white font-semibold">Waves</h2>
+          {currentWaves.length > 0 &&
+            currentWaves.map((each) => (
+              <WaveCard
+                key={`${each.timestamp.toString()}-${each.address}`}
+                address={each.address}
+                color={each.color}
+                message={each.message}
+                timestamp={each.timestamp}
+              />
+            ))}
+        </div>
       </div>
     </>
   );

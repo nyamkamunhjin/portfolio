@@ -8,3 +8,17 @@ export enum Gradients {
   spearmint = 'from-green-200 via-green-400 to-green-500',
   mojave = 'from-yellow-100 via-yellow-300 to-yellow-500',
 }
+
+export interface IWave {
+  waver: string;
+  timestamp: number;
+  message: string;
+  color: string;
+}
+
+export interface ICleanedWave {
+  address: string;
+  timestamp: Date;
+  message: string;
+  color: TicketColor;
+}

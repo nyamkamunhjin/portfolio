@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { motion } from 'framer-motion';
 import { Gradients, TicketColor } from 'interfaces';
+import React from 'react';
 
 export interface Ticket {
   username: string;
@@ -15,7 +17,7 @@ export const Ticket: React.FC<Ticket> = ({
   ticketColor = 'greenBlue',
 }) => (
   <motion.div
-    className={`p-1 rounded-lg bg-gradient-to-r ${Gradients[ticketColor]} animate-gradient-x`}
+    className={`max-w-sm p-1 rounded-lg bg-gradient-to-r ${Gradients[ticketColor]} animate-gradient-x`}
     initial="hidden"
     animate="visible"
     variants={{
