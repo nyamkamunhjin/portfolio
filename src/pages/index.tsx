@@ -75,6 +75,11 @@ const MainPage: NextPage = () => {
         method: 'eth_requestAccounts',
       });
       console.log('Connected', accounts[0]);
+      /*
+       * Refresh wave count and messages
+       */
+      await getAllWaves();
+      await getWaveCount();
       setCurrentAccount(accounts[0]);
     } catch (error) {
       console.error(error);
@@ -107,7 +112,7 @@ const MainPage: NextPage = () => {
   const getAllWaves = async () => {
     try {
       const { ethereum } = window as any;
-
+      console.log('Getting all waves.');
       if (ethereum && contractAddress) {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
@@ -117,8 +122,8 @@ const MainPage: NextPage = () => {
           signer,
         );
 
+        console.log('Getting waves?');
         const waves = await wavePortalContract.getAllWaves();
-
         const wavesCleaned: ICleanedWave[] = (waves as IWave[]).map((each) => ({
           address: each.waver,
           timestamp: new Date(each.timestamp * 1000),
@@ -159,7 +164,9 @@ const MainPage: NextPage = () => {
         /*
          * Execute the actual wave from your smart contract
          */
-        const waveTxn = await wavePortalContract.wave(message, color);
+        const waveTxn = await wavePortalContract.wave(message, color, {
+          gasLimit: 300000,
+        });
         console.log('Mining...', waveTxn.hash);
         setLoading(true);
 
@@ -262,7 +269,7 @@ const MainPage: NextPage = () => {
               icon={<FaEthereum className="text-2xl" />}
             />
           )}
-          {currentAccount === '' ? (
+          {!currentAccount ? (
             <Button type="button" color="pinkRedYellow" onClick={connectWallet}>
               <img
                 src="https://docs.metamask.io/metamask-fox.svg"
@@ -272,7 +279,7 @@ const MainPage: NextPage = () => {
               <span>Connect to MetaMask</span>
             </Button>
           ) : (
-            <Button color="pinkRedYellow">
+            <Button color="pinkRedYellow" hoverEffect={false}>
               <img
                 src="https://docs.metamask.io/metamask-fox.svg"
                 alt="metamask logo"
@@ -282,73 +289,77 @@ const MainPage: NextPage = () => {
             </Button>
           )}
           {/* wave with some eth */}
-          <form
-            className="mt-10 flex flex-col gap-4 w-full items-center"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <textarea
-              rows={4}
-              className="w-full rounded-lg p-2"
-              placeholder="Type something cool..."
-              {...register('message', { required: true })}
-            />
-            {errors.message && (
-              <span className="w-full text-red-400">
-                Message is required to wave 👋🏻
-              </span>
-            )}
-            <select
-              className={`w-full py-3 px-2 rounded-lg appearance-none bg-gradient-to-r animate-gradient-x font-code font-semibold text-white ${
-                Gradients[watchSeletedColor as TicketColor]
-              }`}
-              {...register('color', { required: true })}
-              defaultValue={Gradients.greenBlue}
-            >
-              <option className="text-black" value="greenBlue">
-                Green Blue
-              </option>
-              <option className="text-black" value="pinkPurpleIndigo">
-                Pink Purple Indigo
-              </option>
-              <option className="text-black" value="pinkRedYellow">
-                Pink Red Yellow
-              </option>
-              <option className="text-black" value="greenBluePurple">
-                Green Blue Purple
-              </option>
-              <option className="text-black" value="spearmint">
-                Spearmint
-              </option>
-              <option className="text-black" value="mojave">
-                Mojave
-              </option>
-            </select>
-            {errors.color && (
-              <span className="w-full text-red-400">
-                Color is required to wave 👋🏻
-              </span>
-            )}
-            <Button type="submit" color="greenBluePurple">
-              {loading ? (
-                <Loading className="w-7 animate-spin" />
-              ) : (
-                'Wave at me with a message 👋🏻'
-              )}
-            </Button>
-          </form>
-        </div>
-        <div className="max-w-xl w-full flex flex-col items-start gap-4">
-          <h2 className="text-2xl text-white font-semibold">Waves</h2>
-          {currentWaves.length > 0 &&
-            currentWaves.map((each) => (
-              <WaveCard
-                key={`${each.timestamp.toString()}-${each.address}`}
-                address={each.address}
-                color={each.color}
-                message={each.message}
-                timestamp={each.timestamp}
-              />
-            ))}
+          {currentAccount && (
+            <div className="w-full flex flex-col gap-4">
+              <form
+                className="mt-10 flex flex-col gap-4 w-full items-center"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <textarea
+                  rows={4}
+                  className="w-full rounded-lg p-2"
+                  placeholder="Type something cool..."
+                  {...register('message', { required: true })}
+                />
+                {errors.message && (
+                  <span className="w-full text-red-400">
+                    Message is required to wave 👋🏻
+                  </span>
+                )}
+                <select
+                  className={`w-full py-3 px-2 rounded-lg appearance-none bg-gradient-to-r animate-gradient-x font-code font-semibold text-white ${
+                    Gradients[watchSeletedColor as TicketColor]
+                  }`}
+                  {...register('color', { required: true })}
+                  defaultValue={Gradients.greenBlue}
+                >
+                  <option className="text-black" value="greenBlue">
+                    Green Blue
+                  </option>
+                  <option className="text-black" value="pinkPurpleIndigo">
+                    Pink Purple Indigo
+                  </option>
+                  <option className="text-black" value="pinkRedYellow">
+                    Pink Red Yellow
+                  </option>
+                  <option className="text-black" value="greenBluePurple">
+                    Green Blue Purple
+                  </option>
+                  <option className="text-black" value="spearmint">
+                    Spearmint
+                  </option>
+                  <option className="text-black" value="mojave">
+                    Mojave
+                  </option>
+                </select>
+                {errors.color && (
+                  <span className="w-full text-red-400">
+                    Color is required to wave 👋🏻
+                  </span>
+                )}
+                <Button type="submit" color="greenBluePurple">
+                  {loading ? (
+                    <Loading className="w-7 animate-spin" />
+                  ) : (
+                    'Wave at me with a message 👋🏻'
+                  )}
+                </Button>
+              </form>
+              <div className="max-w-xl w-full flex flex-col items-start gap-4">
+                <h2 className="text-2xl text-white font-semibold">Waves</h2>
+                {currentWaves.length > 0 &&
+                  currentWaves.map((each) => (
+                    <WaveCard
+                      key={`${each.timestamp.toString()}-${each.address}`}
+                      address={each.address}
+                      color={each.color}
+                      message={each.message}
+                      timestamp={each.timestamp}
+                    />
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
