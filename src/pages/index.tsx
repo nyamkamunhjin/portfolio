@@ -219,7 +219,41 @@ const MainPage: NextPage = () => {
             },
           }}
         >
-          mj here, Wave at me 👋🏻
+          Wave at me
+        </motion.p>
+        <motion.p
+          className="text-2xl max-w-lg font-bold text-gray-300 text-center filter drop-shadow-sm"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                delay: 0.4,
+                duration: 1,
+              },
+            },
+          }}
+        >
+          <span
+            className={`font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.spearmint}`}
+          >
+            MJ
+          </span>{' '}
+          here, i am a fullstack developer. Mostly work on{' '}
+          <span
+            className={`font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.greenBluePurple}`}
+          >
+            React (Next.js) + Tailwind, Express + Prisma and Golang
+          </span>
+          . Connect your{' '}
+          <span
+            className={`font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.pinkRedYellow}`}
+          >
+            wallet
+          </span>{' '}
+          and wave at me with a message 👋🏻
         </motion.p>
         <motion.p
           className="text-8xl text-white font-bold text-center filter drop-shadow-sm"
@@ -338,11 +372,7 @@ const MainPage: NextPage = () => {
                   </span>
                 )}
                 <Button type="submit" color="greenBluePurple">
-                  {loading ? (
-                    <Loading className="w-7 animate-spin" />
-                  ) : (
-                    'Wave at me with a message 👋🏻'
-                  )}
+                  {loading ? <Loading className="w-7 animate-spin" /> : '👋🏻'}
                 </Button>
               </form>
               <div className="max-w-xl w-full flex flex-col items-start gap-4">
