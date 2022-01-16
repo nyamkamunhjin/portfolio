@@ -22,7 +22,7 @@ const MainPage: NextPage = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm<{ message: string; color: TicketColor }>();
 
   const watchSeletedColor = watch('color', 'greenBlue' as TicketColor);
 

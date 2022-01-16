@@ -31,21 +31,6 @@ class MyDocument extends Document<unknown> {
         <body>
           <Main />
           <NextScript />
-          <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "80319bb6-b69a-468a-ada2-fcabf1e5fcf3",
-      safari_web_id: "web.onesignal.auto.34f3144b-3497-4c5c-a43c-a5d9eb9bdd56",
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });`,
-            }}
-          />
         </body>
       </Html>
     );
