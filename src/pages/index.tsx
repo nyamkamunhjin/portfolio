@@ -245,7 +245,7 @@ const MainPage: NextPage = () => {
           <span
             className={`font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.greenBluePurple}`}
           >
-            React (Next.js) + Tailwind, Express + Prisma and Golang
+            React (Next.js) + Tailwind, Express + Prisma and Golang & hello from future
           </span>
           . Connect your{' '}
           <span
@@ -253,7 +253,7 @@ const MainPage: NextPage = () => {
           >
             wallet
           </span>{' '}
-          and wave at me with a message 👋🏻
+          and wave at me with a message 👋🏻.
         </motion.p>
         <motion.p
           className="text-8xl text-white font-bold text-center filter drop-shadow-sm"
