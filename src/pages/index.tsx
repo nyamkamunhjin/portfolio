@@ -239,7 +239,7 @@ const MainPage: NextPage = () => {
           <span
             className={`font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r animate-gradient-x ${Gradients.spearmint}`}
           >
-            Darkhaa
+            MJ
           </span>{' '}
           here, i am a fullstack developer. Mostly work on{' '}
           <span
