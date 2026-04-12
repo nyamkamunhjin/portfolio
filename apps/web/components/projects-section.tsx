@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Convex AI",
     company: "Convex",
-    period: "02/2026 — Present",
+    period: "02/2026",
     description:
       "A next-generation AI-powered messenger platform delivering intelligent, automated customer service. Unifies Facebook Messenger, Instagram, Viber, and more into a single inbox.",
     tags: ["AI", "React", "Node.js", "Multi-Platform"],
@@ -24,22 +24,12 @@ const projects = [
   {
     title: "Puck Finance",
     company: "Automatic Crypto Trading Bot",
-    period: "08/2023 — Present",
+    period: "08/2023",
     description:
       "Built an API connecting TradingView signals to Binance API for automated futures trading. Integrated with a Discord bot for tracking trades, balance, and P&L.",
     tags: ["Go", "Trading", "API", "Discord"],
     accent: "accent" as const,
     link: "https://puck.live",
-  },
-  {
-    title: "Immi Flow",
-    company: "Immi Flow",
-    period: "01/2026 — 03/2026",
-    description:
-      "AI-powered immigration process system for Australian migration agencies. Automated support center across Messenger, Instagram, WhatsApp with AI analytics and self-improving agents.",
-    tags: ["AI", "React", "Node.js", "WhatsApp"],
-    accent: "secondary" as const,
-    link: "https://immi-flow.com",
   },
 ]
 
@@ -82,7 +72,7 @@ export function ProjectsSection() {
             001 — {String(projects.length).padStart(3, "0")}
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project) => (
             <Card
               key={project.title}

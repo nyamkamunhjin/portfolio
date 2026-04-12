@@ -44,7 +44,7 @@ export function ContactSection() {
             <div className="flex size-12 items-center justify-center rounded-xl bg-surface-container-highest text-accent">
               <MapPin className="size-5" />
             </div>
-            <span className="font-medium">Australia / Remote</span>
+            <span className="font-medium">Ulaanbaatar</span>
           </div>
           <div className="mt-2 flex gap-4">
             <a
