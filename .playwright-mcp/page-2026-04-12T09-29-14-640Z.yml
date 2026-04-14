@@ -1,0 +1,375 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link "Ram Maheshwari Ram Maheshwari" [ref=e3] [cursor=pointer]:
+      - /url: "#"
+      - img "Ram Maheshwari" [ref=e4]
+      - text: Ram
+      - generic [ref=e5]: Maheshwari
+    - generic [ref=e6]:
+      - link "About" [ref=e7] [cursor=pointer]:
+        - /url: "#about"
+      - link "Experience" [ref=e8] [cursor=pointer]:
+        - /url: "#experience"
+      - link "Collabs" [ref=e9] [cursor=pointer]:
+        - /url: "#brands"
+      - link "Testimonial" [ref=e10] [cursor=pointer]:
+        - /url: "#testimonial"
+      - link "Contact" [ref=e11] [cursor=pointer]:
+        - /url: "#contact"
+  - generic [ref=e13]:
+    - generic [ref=e14]: Open to Opportunities
+    - heading "Building bridges between developers & technology" [level=1] [ref=e16]:
+      - text: Building bridges
+      - text: between developers
+      - text: "& technology"
+    - paragraph [ref=e17]: Developer Advocate & Tech Evangelist with a 400K+ global developer audience. I create technical content, simplify complex tools, and help developers grow.
+    - generic [ref=e18]:
+      - link "Get in Touch →" [ref=e19] [cursor=pointer]:
+        - /url: "#contact"
+      - link "About Me" [ref=e20] [cursor=pointer]:
+        - /url: "#about"
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - heading "400K+" [level=3] [ref=e23]
+        - paragraph [ref=e24]: Global Developer Audience
+      - generic [ref=e25]:
+        - heading "150K+" [level=3] [ref=e26]
+        - paragraph [ref=e27]: LinkedIn Followers
+      - generic [ref=e28]:
+        - heading "200K+" [level=3] [ref=e29]
+        - paragraph [ref=e30]: Instagram Followers
+  - generic [ref=e31]:
+    - generic [ref=e33]:
+      - paragraph [ref=e34]: Who I Am
+      - heading "About Me" [level=2] [ref=e35]
+      - paragraph [ref=e36]: Developer Advocate who builds, teaches, and grows communities around the tools developers love.
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - paragraph [ref=e39]:
+          - text: I'm
+          - strong [ref=e40]: Ram Maheshwari
+          - text: ", a Developer Advocate & Frontend Developer passionate about making technology accessible. I create technical content, build real-world demos, and help developers navigate complex tools with confidence."
+        - paragraph [ref=e41]:
+          - text: I've collaborated with brands like
+          - strong [ref=e42]: Anthropic (Claude)
+          - text: ","
+          - strong [ref=e43]: Notion
+          - text: ","
+          - strong [ref=e44]: Lovable
+          - text: ","
+          - strong [ref=e45]: Wix Studio
+          - text: ","
+          - strong [ref=e46]: Maileroo
+          - text: ", and more, creating content and demos that educate and engage developer communities worldwide."
+        - paragraph [ref=e47]:
+          - text: My work has been featured on some of the world's biggest tech sites including
+          - strong [ref=e48]: CSS-Tricks
+          - text: ","
+          - strong [ref=e49]: Hostinger
+          - text: ", and others. I'm passionate about dev education, community building, and bridging the gap between products and the developers who use them."
+        - generic [ref=e50]:
+          - generic [ref=e51]: Community Building
+          - generic [ref=e52]: Developer Advocacy
+          - generic [ref=e53]: Technical Writing
+          - generic [ref=e54]: Content Creation
+          - generic [ref=e55]: HTML
+          - generic [ref=e56]: CSS
+          - generic [ref=e57]: JavaScript
+          - generic [ref=e58]: React
+          - generic [ref=e59]: SASS
+          - generic [ref=e60]: Git
+          - generic [ref=e61]: AI Tools
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - generic [ref=e64]: 🎯
+          - heading "Developer First" [level=4] [ref=e65]
+          - paragraph [ref=e66]: I simplify complex developer tools with hands-on demos and practical content that developers can actually use.
+        - generic [ref=e67]:
+          - generic [ref=e68]: 🌍
+          - heading "Global Reach" [level=4] [ref=e69]
+          - paragraph [ref=e70]: 400K+ developers across LinkedIn, Instagram, YouTube, and more trust my content for learning and growth.
+        - generic [ref=e71]:
+          - generic [ref=e72]: 🤝
+          - heading "Brand Collaborator" [level=4] [ref=e73]
+          - paragraph [ref=e74]: Worked with Anthropic, Notion, Lovable, Wix, and Maileroo to create developer-facing content and campaigns.
+        - generic [ref=e75]:
+          - generic [ref=e76]: ⚡
+          - heading "Builder Mindset" [level=4] [ref=e77]
+          - paragraph [ref=e78]: I don't just talk about tech, I build with it. From open-source projects to client websites, I ship real code.
+  - generic [ref=e79]:
+    - generic [ref=e81]:
+      - paragraph [ref=e82]: Where I've Worked
+      - heading "Experience" [level=2] [ref=e83]
+      - paragraph [ref=e84]: Partnered with top tech companies to create developer-focused content and drive product adoption.
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]: Anthropic
+          - text: Contract · 3 Months
+        - generic [ref=e89]:
+          - heading "Developer Advocate" [level=4] [ref=e90]
+          - paragraph [ref=e91]: Built real apps showcasing Claude Code use cases. Demonstrated how to use Artifacts for live code output and helped developers understand AI features through practical demos and engaging content.
+          - generic [ref=e92]:
+            - generic [ref=e93]: Claude Code
+            - generic [ref=e94]: Artifacts
+            - generic [ref=e95]: AI Demos
+            - generic [ref=e96]: Developer Education
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]: Wix Studio
+          - text: Contract · 3 Months
+        - generic [ref=e100]:
+          - heading "Developer Advocate" [level=4] [ref=e101]
+          - paragraph [ref=e102]: Showcased Wix Studio's Headless CMS through real project demos. Created short-form content highlighting developer workflows and explained how devs can build and manage custom sites.
+          - generic [ref=e103]:
+            - generic [ref=e104]: Headless CMS
+            - generic [ref=e105]: Content Creation
+            - generic [ref=e106]: Web Development
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - generic [ref=e109]: Notion
+          - text: Contract
+        - generic [ref=e110]:
+          - heading "Developer Advocate" [level=4] [ref=e111]
+          - paragraph [ref=e112]: Created developer-focused content showcasing Notion's capabilities as a productivity and project management tool. Demonstrated practical use cases and workflows to help developers integrate Notion into their daily work.
+          - generic [ref=e113]:
+            - generic [ref=e114]: Notion
+            - generic [ref=e115]: Productivity
+            - generic [ref=e116]: Content Creation
+            - generic [ref=e117]: Developer Education
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e120]: Lovable
+          - text: Contract
+        - generic [ref=e121]:
+          - heading "Developer Advocate" [level=4] [ref=e122]
+          - paragraph [ref=e123]: Partnered with Lovable to create content demonstrating their AI-powered development platform. Built real projects and tutorials showing developers how to ship apps faster using Lovable's tools.
+          - generic [ref=e124]:
+            - generic [ref=e125]: AI Tools
+            - generic [ref=e126]: App Development
+            - generic [ref=e127]: Content Creation
+            - generic [ref=e128]: Developer Education
+      - generic [ref=e129]:
+        - generic [ref=e130]:
+          - generic [ref=e131]: Freelance
+          - text: Self-Employed · 2023 – Present
+        - generic [ref=e132]:
+          - heading "Web Developer (Part Time)" [level=4] [ref=e133]
+          - paragraph [ref=e134]: Building frontend of websites and web apps using modern technologies. Working directly with clients to design and develop user interfaces that meet their business needs.
+          - generic [ref=e135]:
+            - generic [ref=e136]: React
+            - generic [ref=e137]: JavaScript
+            - generic [ref=e138]: CSS/SASS
+            - generic [ref=e139]: Client Work
+  - generic [ref=e140]:
+    - generic [ref=e142]:
+      - paragraph [ref=e143]: Trusted By
+      - heading "Brand Collaborations" [level=2] [ref=e144]
+      - paragraph [ref=e145]: Collaborated with leading tech brands to educate and engage developer communities worldwide.
+    - generic [ref=e147]:
+      - generic [ref=e148]: Anthropic
+      - generic [ref=e149]: ·
+      - generic [ref=e150]: Notion
+      - generic [ref=e151]: ·
+      - generic [ref=e152]: Lovable
+      - generic [ref=e153]: ·
+      - generic [ref=e154]: Wix Studio
+      - generic [ref=e155]: ·
+      - generic [ref=e156]: Maileroo
+      - generic [ref=e157]: ·
+      - generic [ref=e158]: Anthropic
+      - generic [ref=e159]: ·
+      - generic [ref=e160]: Notion
+      - generic [ref=e161]: ·
+      - generic [ref=e162]: Lovable
+      - generic [ref=e163]: ·
+      - generic [ref=e164]: Wix Studio
+      - generic [ref=e165]: ·
+      - generic [ref=e166]: Maileroo
+      - generic [ref=e167]: ·
+  - generic [ref=e168]:
+    - generic [ref=e170]:
+      - paragraph [ref=e171]: What Others Say
+      - heading "Testimonial" [level=2] [ref=e172]
+      - paragraph [ref=e173]: Hear from the people I've worked with on brand campaigns and developer content.
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - img [ref=e176]
+        - paragraph [ref=e178]: Ram is a one-of-a-kind creator partner, and that comes from a founder of one of the largest B2B creator marketing agencies who's worked with close to a thousand creators. He goes above and beyond for his brand partners and he's been a brand partner on campaigns with brands like Wix and Anthropic/Claude. He truly cares, and both the agency on our side and the brand loved working with him on top of incredible performance. Would highly recommend anyone to partner with him.
+      - generic [ref=e179]:
+        - img "AJ Eckstein" [ref=e180]
+        - generic [ref=e181]:
+          - heading "AJ Eckstein" [level=4] [ref=e182]
+          - paragraph [ref=e183]: Founder, B2B Creator Marketing Agency
+          - link "LinkedIn ↗" [ref=e184] [cursor=pointer]:
+            - /url: https://linkedin.com/in/aaron-aj-eckstein
+  - generic [ref=e186]:
+    - generic [ref=e187]:
+      - paragraph [ref=e188]: Content I Create
+      - heading "Featured Content" [level=2] [ref=e189]
+      - paragraph [ref=e190]: One of hundreds of technical videos I create to help developers learn, build, and grow.
+    - link "See All Content →" [ref=e191] [cursor=pointer]:
+      - /url: https://linkedin.com/in/rammcodes
+  - generic [ref=e194]:
+    - generic [ref=e196]:
+      - paragraph [ref=e197]: Hand-Coded Work
+      - heading "Projects" [level=2] [ref=e198]
+      - paragraph [ref=e199]: Real projects I built from scratch, line by line, with no AI tools. Just HTML, CSS, JavaScript, and React.
+    - generic [ref=e200]:
+      - generic [ref=e202]:
+        - heading "Dopefolio" [level=4] [ref=e203]
+        - paragraph [ref=e204]: A successful Open-Source portfolio template featured on CSS-Tricks, Hostinger, and used by thousands of developers globally.
+        - generic [ref=e205]:
+          - generic [ref=e206]: HTML
+          - generic [ref=e207]: CSS
+          - generic [ref=e208]: JavaScript
+          - generic [ref=e209]: Open Source
+        - link "View Project →" [ref=e210] [cursor=pointer]:
+          - /url: https://github.com/rammcodes/dopefolio
+      - generic [ref=e212]:
+        - heading "Wilsonport" [level=4] [ref=e213]
+        - paragraph [ref=e214]: A multiservice logistics and transport company website built from scratch using modern frontend technologies.
+        - generic [ref=e215]:
+          - generic [ref=e216]: HTML
+          - generic [ref=e217]: CSS
+          - generic [ref=e218]: JavaScript
+          - generic [ref=e219]: Client Work
+        - link "View Project →" [ref=e220] [cursor=pointer]:
+          - /url: https://wilsonport-web.netlify.app
+      - generic [ref=e222]:
+        - heading "Boreal Coffee Clone" [level=4] [ref=e223]
+        - paragraph [ref=e224]: A frontend recreation of Boreal Coffee's web app, built as a learning project inspired by their beautiful UI design.
+        - generic [ref=e225]:
+          - generic [ref=e226]: HTML
+          - generic [ref=e227]: CSS
+          - generic [ref=e228]: React
+          - generic [ref=e229]: Responsive Design
+        - link "View Project →" [ref=e230] [cursor=pointer]:
+          - /url: https://bc-clone.netlify.app
+      - generic [ref=e232]:
+        - heading "Crown Template" [level=4] [ref=e233]
+        - paragraph [ref=e234]: A web template targeting the restaurant and food industry, designed so anyone can present their business online.
+        - generic [ref=e235]:
+          - generic [ref=e236]: HTML
+          - generic [ref=e237]: CSS
+          - generic [ref=e238]: JavaScript
+        - link "View Project →" [ref=e239] [cursor=pointer]:
+          - /url: https://fc-rest.netlify.app
+  - generic [ref=e240]:
+    - generic [ref=e242]:
+      - paragraph [ref=e243]: Technical Writing
+      - heading "I Can Write Too" [level=2] [ref=e244]
+      - paragraph [ref=e245]: While not big into writing technical blog posts, I can also write in-depth technical articles when needed. Here's one I wrote back in 2021, completely without AI, that went viral on DEV.to.
+    - generic [ref=e247]:
+      - generic [ref=e248]: DEV.to · Sep 2021
+      - heading "Build a Pixel Perfect Skeleton Loader Using CSS" [level=3] [ref=e250]
+      - paragraph [ref=e251]: A step-by-step tutorial on creating pixel-perfect skeleton loading screens using pure CSS, covering layout matching, background placeholders, and the shining animation effect with keyframes. The post gained significant traction in the dev community with 30+ comments and discussions.
+      - generic [ref=e252]:
+        - generic [ref=e253]: CSS
+        - generic [ref=e254]: HTML
+        - generic [ref=e255]: JavaScript
+        - generic [ref=e256]: React
+        - generic [ref=e257]: Tutorial
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e260]: 30+ Comments
+          - generic [ref=e261]: ·
+          - generic [ref=e262]: Written without AI
+          - generic [ref=e263]: ·
+          - generic [ref=e264]: Went Viral
+        - link "Read on DEV.to →" [ref=e265] [cursor=pointer]:
+          - /url: https://dev.to/rammcodes/build-pixel-perfect-skeleton-loader-using-css-5692
+  - generic [ref=e267]:
+    - paragraph [ref=e268]: Open to Opportunities
+    - heading "Let's build something great together." [level=2] [ref=e269]:
+      - text: Let's build something
+      - text: great together.
+    - generic [ref=e270]:
+      - generic [ref=e271]: Developer Advocate
+      - generic [ref=e272]: Brand Partnerships
+      - generic [ref=e273]: Developer Relations
+      - generic [ref=e274]: Technical Evangelist
+      - generic [ref=e275]: Content Collaborations
+    - link "Reach Out →" [ref=e276] [cursor=pointer]:
+      - /url: mailto:rammcodes@gmail.com
+  - generic [ref=e277]:
+    - generic [ref=e279]:
+      - paragraph [ref=e280]: Get in Touch
+      - heading "Contact" [level=2] [ref=e281]
+      - paragraph [ref=e282]: Have a role, partnership, or collaboration in mind? I'd love to hear from you.
+    - generic [ref=e283]:
+      - generic [ref=e284]:
+        - heading "Let's connect and create something awesome." [level=3] [ref=e285]:
+          - text: Let's connect and create
+          - text: something awesome.
+        - paragraph [ref=e286]: Whether you're a brand looking for a developer advocate, a company in need of DevRel expertise, or just want to chat about tech, I'd love to hear from you.
+        - link "rammcodes@gmail.com" [ref=e287] [cursor=pointer]:
+          - /url: mailto:rammcodes@gmail.com
+        - generic [ref=e288]:
+          - link "in LinkedIn @rammcodes" [ref=e289] [cursor=pointer]:
+            - /url: https://linkedin.com/in/rammcodes
+            - generic [ref=e290]: in
+            - generic [ref=e291]:
+              - generic [ref=e292]: LinkedIn
+              - generic [ref=e293]: "@rammcodes"
+          - link "📸 Instagram @rammcodes_" [ref=e294] [cursor=pointer]:
+            - /url: https://instagram.com/rammcodes_
+            - generic [ref=e295]: 📸
+            - generic [ref=e296]:
+              - generic [ref=e297]: Instagram
+              - generic [ref=e298]: "@rammcodes_"
+          - link "@ Threads @rammcodes_" [ref=e299] [cursor=pointer]:
+            - /url: https://threads.net/@rammcodes_
+            - generic [ref=e300]: "@"
+            - generic [ref=e301]:
+              - generic [ref=e302]: Threads
+              - generic [ref=e303]: "@rammcodes_"
+          - link "f Facebook Ram Maheshwari" [ref=e304] [cursor=pointer]:
+            - /url: https://facebook.com/profile.php?id=61554891783841
+            - generic [ref=e305]: f
+            - generic [ref=e306]:
+              - generic [ref=e307]: Facebook
+              - generic [ref=e308]: Ram Maheshwari
+          - link "𝕏 X (Twitter) @rammcodes" [ref=e309] [cursor=pointer]:
+            - /url: https://twitter.com/rammcodes
+            - generic [ref=e310]: 𝕏
+            - generic [ref=e311]:
+              - generic [ref=e312]: X (Twitter)
+              - generic [ref=e313]: "@rammcodes"
+          - link "▶ YouTube @rammcodes" [ref=e314] [cursor=pointer]:
+            - /url: https://youtube.com/@rammcodes
+            - generic [ref=e315]: ▶
+            - generic [ref=e316]:
+              - generic [ref=e317]: YouTube
+              - generic [ref=e318]: "@rammcodes"
+          - link "⌨ GitHub @rammcodes" [ref=e319] [cursor=pointer]:
+            - /url: https://github.com/rammcodes
+            - generic [ref=e320]: ⌨
+            - generic [ref=e321]:
+              - generic [ref=e322]: GitHub
+              - generic [ref=e323]: "@rammcodes"
+      - generic [ref=e325]:
+        - heading "Send me a message" [level=4] [ref=e326]
+        - generic [ref=e327]:
+          - generic [ref=e328]:
+            - generic [ref=e329]:
+              - generic [ref=e330]: Name
+              - textbox "Name" [ref=e331]:
+                - /placeholder: Your name
+            - generic [ref=e332]:
+              - generic [ref=e333]: Email
+              - textbox "Email" [ref=e334]:
+                - /placeholder: you@example.com
+          - generic [ref=e335]:
+            - generic [ref=e336]: Subject
+            - textbox "Subject" [ref=e337]:
+              - /placeholder: What's this about?
+          - generic [ref=e338]:
+            - generic [ref=e339]: Message
+            - textbox "Message" [ref=e340]:
+              - /placeholder: Tell me more...
+          - button "Send Message →" [ref=e341] [cursor=pointer]
+  - contentinfo [ref=e342]:
+    - paragraph [ref=e343]: © 2026 Ram Maheshwari. Built with ❤️
+    - link "Back to top ↑" [ref=e344] [cursor=pointer]:
+      - /url: "#"
