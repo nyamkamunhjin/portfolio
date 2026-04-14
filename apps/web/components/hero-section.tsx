@@ -14,11 +14,7 @@ export function HeroSection() {
           </span>
         </div>
         <h1 className="mb-8 text-4xl leading-[1.1] font-extrabold tracking-tight md:text-6xl lg:text-7xl">
-          Building{" "}
-          <span className="hero-gradient bg-clip-text text-transparent">
-            full-stack
-          </span>{" "}
-          products from MVP to scale.
+          Munkhjin Nyamdorj
         </h1>
         <p className="mb-12 max-w-2xl text-lg text-muted-foreground md:text-xl">
           Senior full-stack developer with 7 years of experience in web
@@ -28,7 +24,7 @@ export function HeroSection() {
         </p>
         <div className="flex flex-wrap gap-4">
           <a
-            className="hero-gradient glow-accent flex items-center gap-2 rounded-xl px-8 py-4 font-bold text-primary-foreground transition-transform hover:scale-105"
+            className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-bold text-primary-foreground transition-colors hover:bg-primary/80"
             href="#contact"
           >
             Get in Touch
