@@ -1,3 +1,5 @@
+"use client"
+
 import { Rocket, Robot, PlugsConnected, Layout } from "@phosphor-icons/react"
 import { Card, CardContent } from "@workspace/ui/components/card"
 
