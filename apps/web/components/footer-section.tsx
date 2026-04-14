@@ -29,7 +29,7 @@ export function FooterSection() {
             </a>
             <a
               className="text-muted-foreground opacity-80 transition-colors hover:text-secondary hover:opacity-100"
-              href="mailto:nyamkamunhjin@gmail.com"
+              href="mailto:hello@munkhjin.xyz"
             >
               Email
             </a>

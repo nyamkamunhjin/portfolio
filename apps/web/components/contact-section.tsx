@@ -35,12 +35,12 @@ export function ContactSection() {
             <div className="mt-4 flex flex-col gap-6">
               <a
                 className="group flex items-center gap-4"
-                href="mailto:nyamkamunhjin@gmail.com"
+                href="mailto:hello@munkhjin.xyz"
               >
                 <div className="flex size-12 items-center justify-center rounded-xl bg-surface-container-highest text-secondary transition-all group-hover:bg-secondary group-hover:text-secondary-foreground">
                   <EnvelopeSimple className="size-5" />
                 </div>
-                <span className="font-medium">nyamkamunhjin@gmail.com</span>
+                <span className="font-medium">hello@munkhjin.xyz</span>
               </a>
               <div className="flex items-center gap-4">
                 <div className="flex size-12 items-center justify-center rounded-xl bg-surface-container-highest text-accent">

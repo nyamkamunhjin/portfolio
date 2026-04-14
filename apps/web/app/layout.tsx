@@ -92,7 +92,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Munkhjin Nyamdorj",
               jobTitle: "Senior Full-Stack Developer",
-              email: "nyamkamunhjin@gmail.com",
+              email: "hello@munkhjin.xyz",
               knowsAbout: [
                 "React",
                 "Node.js",
