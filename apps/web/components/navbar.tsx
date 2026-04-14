@@ -7,10 +7,10 @@ export function Navbar() {
         </span>
         <div className="hidden items-center gap-8 md:flex">
           <a
-            className="border-b-2 border-secondary pb-1 font-semibold text-secondary"
-            href="#about"
+            className="font-medium text-muted-foreground transition-colors hover:text-foreground"
+            href="#services"
           >
-            About
+            Services
           </a>
           <a
             className="font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -32,11 +32,11 @@ export function Navbar() {
           </a>
         </div>
         <a
-          className="rounded-lg bg-primary px-6 py-2 font-bold text-primary-foreground transition-all hover:opacity-90"
-          href="/Munkhjin_Nyamdorj_Resume.pdf"
-          target="_blank"
+          className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2 font-bold text-primary-foreground transition-all hover:bg-primary/80"
+          href="#contact"
         >
-          Resume
+          <span className="size-2 animate-pulse rounded-full bg-emerald-500" />
+          Available for Hire
         </a>
       </div>
     </nav>

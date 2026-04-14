@@ -43,7 +43,7 @@ export function HeroSection() {
         <div className="relative size-64 md:size-80 lg:size-96">
           <Image
             alt="Munkhjin Nyamdorj - Full-Stack Developer"
-            src="/profile.jpg"
+            src="/profile.png"
             fill
             className="rounded-full border-4 border-border/20 object-cover shadow-2xl"
             priority

@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import { MetricsSection } from "@/components/metrics-section"
+import { ServicesSection } from "@/components/services-section"
 import { AboutSection } from "@/components/about-section"
 import { ExperienceSection } from "@/components/experience-section"
 import { ProjectsSection } from "@/components/projects-section"
@@ -9,9 +9,9 @@ import { FooterSection } from "@/components/footer-section"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Munkhjin Nyamdorj | Full-Stack Developer Portfolio",
+  title: "Munkhjin Nyamdorj | Full-Stack Developer",
   description:
-    "Portfolio of Munkhjin Nyamdorj — Senior Full-Stack Developer with 7 years of experience in AI integration, React, Node.js, and SaaS development. View projects, experience, and get in touch.",
+    "Senior full-stack developer available for contract work. 7 years of experience building SaaS products, AI integrations, and complete systems from MVP to production with thousands of users.",
   alternates: {
     canonical: "/",
   },
@@ -23,7 +23,7 @@ export default function Page() {
       <Navbar />
       <main className="pt-24">
         <HeroSection />
-        <MetricsSection />
+        <ServicesSection />
         <AboutSection />
         <ExperienceSection />
         <ProjectsSection />

@@ -1,4 +1,8 @@
+"use client"
+
+import { useState } from "react"
 import { Badge } from "@workspace/ui/components/badge"
+import { CaretDown } from "@phosphor-icons/react"
 
 const experiences = [
   {
@@ -48,50 +52,46 @@ const experiences = [
     ],
     tags: ["React", "Node.js", "MongoDB", "Docker"],
   },
+]
+
+const earlierExperiences = [
   {
     role: "Full-Stack Developer",
     company: "Trap.mn",
-    location: "",
     period: "March 2021 – May 2021",
     type: "Part-time",
-    active: false,
     highlights: [
       "Built a web service for reporting security threats and attacks to cloud servers.",
       "Created a tool to export log data summaries to CSV format.",
       "Developed a back-office section for managing user subscriptions.",
     ],
-    tags: ["React", "Node.js", "PostgreSQL"],
   },
   {
     role: "Full-Stack Developer",
     company: "Freelance",
-    location: "",
     period: "August 2019 – October 2019",
     type: "Freelancer",
-    active: false,
     highlights: [
       "Developed an e-commerce website for furniture sales using React, Express.js, and MySQL.",
       "Assisted senior students with deploying React and Node.js applications to cloud servers.",
     ],
-    tags: ["React", "Express.js", "MySQL"],
   },
   {
     role: "Entry-Level Front-End Engineer",
     company: "Erxes INC",
-    location: "",
     period: "May 2019 – August 2019",
     type: "Full-time",
-    active: false,
     highlights: [
       "Fixed CSS and React layouts, updated developer documentation, and wrote snapshot unit tests using Jest.",
     ],
-    tags: ["React", "CSS", "Jest"],
   },
 ]
 
 export function ExperienceSection() {
+  const [showEarlier, setShowEarlier] = useState(false)
+
   return (
-    <section className="bg-surface-container-low py-32" id="experience">
+    <section className="py-32" id="experience">
       <div className="mx-auto max-w-7xl px-8">
         <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
           Work Experience
@@ -159,6 +159,58 @@ export function ExperienceSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <button
+            className="flex items-center gap-2 font-medium text-muted-foreground transition-colors hover:text-foreground"
+            onClick={() => setShowEarlier(!showEarlier)}
+          >
+            <CaretDown
+              className={`size-4 transition-transform ${showEarlier ? "rotate-180" : ""}`}
+            />
+            {showEarlier ? "Hide" : "Show"} earlier experience (
+            {earlierExperiences.length} roles)
+          </button>
+
+          {showEarlier && (
+            <div
+              className="mt-8 flex flex-col gap-8 border-l-4 pl-12"
+              style={{ borderLeftColor: "rgba(73,72,71,0.15)" }}
+            >
+              {earlierExperiences.map((exp) => (
+                <div key={`${exp.company}-${exp.period}`}>
+                  <div className="mb-2 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+                    <h3 className="text-lg font-bold text-muted-foreground">
+                      {exp.role}
+                    </h3>
+                    <span className="text-sm text-muted-foreground">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="text-muted-foreground">{exp.company}</span>
+                    <Badge
+                      variant="outline"
+                      className="border-border/20 text-xs text-muted-foreground"
+                    >
+                      {exp.type}
+                    </Badge>
+                  </div>
+                  <ul className="flex max-w-3xl flex-col gap-1.5">
+                    {exp.highlights.map((highlight, i) => (
+                      <li
+                        key={i}
+                        className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:top-[10px] before:left-0 before:size-1.5 before:rounded-full before:bg-border/50 before:content-['']"
+                      >
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
