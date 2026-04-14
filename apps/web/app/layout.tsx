@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Munkhjin Nyamdorj | Full-Stack Developer",
   description:
-    "Senior software engineer with 7 years of experience specializing in AI integration and full-stack development. Expert in React, Node.js, and building SaaS systems from scratch.",
+    "Senior full-stack developer with 7 years of experience in web application development, API integration, and system building. Experienced in React, Node.js, and building complete SaaS applications from initial version to production use with thousands of users.",
   keywords: [
     "Munkhjin Nyamdorj",
     "Full-Stack Developer",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Node.js",
     "TypeScript",
     "Next.js",
-    "AI Integration",
+    "API Integration",
     "SaaS",
     "AWS",
   ],
@@ -44,14 +44,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     title: "Munkhjin Nyamdorj | Full-Stack Developer",
     description:
-      "Senior software engineer with 7 years of experience specializing in AI integration and full-stack development.",
+      "Senior full-stack developer with 7 years of experience in web application development, API integration, and system building.",
     siteName: "Munkhjin Nyamdorj",
   },
   twitter: {
     card: "summary_large_image",
     title: "Munkhjin Nyamdorj | Full-Stack Developer",
     description:
-      "Senior software engineer with 7 years of experience specializing in AI integration and full-stack development.",
+      "Senior full-stack developer with 7 years of experience in web application development, API integration, and system building.",
   },
   robots: {
     index: true,

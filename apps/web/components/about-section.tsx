@@ -2,50 +2,58 @@
 
 import { Badge } from "@workspace/ui/components/badge"
 import { Card, CardContent } from "@workspace/ui/components/card"
-import { Target, Lightning, Cube, Robot } from "@phosphor-icons/react"
+import { Target, Lightning, Cube, CodeBlock } from "@phosphor-icons/react"
 
-const skills = [
-  "TypeScript",
-  "Go",
-  "Python",
-  "React",
-  "Next.js",
-  "Node.js",
-  "GraphQL",
-  "AWS",
-  "Docker",
-  "PostgreSQL",
-  "MongoDB",
-  "Tailwind CSS",
-  "Prisma",
-  "LLMs",
-  "Prompt Engineering",
-]
+const skills = {
+  Languages: ["Go", "JavaScript", "Python", "SQL", "TypeScript", "Pine Script"],
+  "Frameworks & Libraries": [
+    "GraphQL",
+    "Next.js",
+    "Node.js",
+    "Prisma",
+    "React",
+    "Tailwind CSS",
+  ],
+  "Tools & Platforms": [
+    "AWS",
+    "Anthropic API",
+    "Binance API",
+    "Docker",
+    "Git",
+    "LiteLLM",
+    "MongoDB Atlas",
+    "OpenAI API",
+    "Vercel",
+    "OpenStack",
+  ],
+  Databases: ["MongoDB", "MySQL", "PostgreSQL"],
+  Other: ["Agile development", "API design and integration", "Blockchain"],
+}
 
 const features = [
   {
     icon: Cube,
     title: "Full-Stack SaaS Builder",
     description:
-      "End-to-end product launches from MVP to thousands of active users. Built complete SaaS systems from scratch.",
+      "End-to-end product launches from initial version to production use with thousands of active users.",
   },
   {
-    icon: Robot,
-    title: "AI Integration Expert",
+    icon: CodeBlock,
+    title: "System Design",
     description:
-      "Built coding-capable AI agents, RAG systems, chat interfaces with tool calling, and AI-powered automation platforms.",
+      "Strong background in system design, third-party integrations, and front-end development.",
   },
   {
     icon: Lightning,
-    title: "Workflow Automation",
+    title: "API Integration",
     description:
-      "Developed automation tooling integrating 250+ third-party applications working alongside AI Agents through MCP servers.",
+      "Built automation tools connecting 250+ third-party applications and multiple external APIs.",
   },
   {
     icon: Target,
-    title: "Cross-Functional Leader",
+    title: "Cross-Functional",
     description:
-      "Bridges engineering and product to drive outcomes. Led product launches, negotiated deals, and rebuilt interfaces for measurable gains.",
+      "Collaboration between engineering and product teams to drive outcomes from concept to production.",
   },
 ]
 
@@ -61,27 +69,35 @@ export function AboutSection() {
             Senior Full-Stack Developer
           </h2>
           <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
-            Senior software engineer with 7 years of experience specializing in
-            AI integration and full-stack development. Expert in React, Node.js,
-            and API design, with a proven track record of building full SaaS
-            systems from scratch — through MVP to thousands of active users.
-            Skilled in system design, API integrations, and front-end UI/UX. Led
-            product launches, rebuilt application interfaces and landing pages
-            for measurable SEO gains, and developed workflow automation tools
-            that directly enabled strategic business deals.
+            Senior full-stack developer with 7 years of experience in web
+            application development, API integration, and system building.
+            Experienced in React, Node.js, and building complete SaaS
+            applications from initial version to production use with thousands
+            of users. Strong background in system design, third-party
+            integrations, front-end development, and cross-functional
+            collaboration between engineering and product teams.
           </p>
         </div>
         <div>
-          <h3 className="mb-4 text-lg font-semibold">Skills & Technologies</h3>
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <Badge
-                key={skill}
-                variant="outline"
-                className="border-border/20 bg-surface-container-highest px-4 py-2 text-secondary"
-              >
-                {skill}
-              </Badge>
+          <h3 className="mb-6 text-lg font-semibold">Skills & Technologies</h3>
+          <div className="flex flex-col gap-6">
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category}>
+                <h4 className="mb-3 text-sm tracking-widest text-muted-foreground uppercase">
+                  {category}
+                </h4>
+                <div className="flex flex-wrap gap-3">
+                  {items.map((skill) => (
+                    <Badge
+                      key={skill}
+                      variant="outline"
+                      className="border-border/20 bg-surface-container-highest px-4 py-2 text-secondary"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>

@@ -13,9 +13,9 @@ const metrics = [
     description: "Third-Party Apps",
   },
   {
-    label: "Production Issues",
+    label: "Issues Resolved",
     value: "40+",
-    description: "Resolved & Shipped",
+    description: "Production Fixes",
   },
 ]
 

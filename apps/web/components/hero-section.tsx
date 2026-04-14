@@ -21,9 +21,10 @@ export function HeroSection() {
           products from MVP to scale.
         </h1>
         <p className="mb-12 max-w-2xl text-lg text-muted-foreground md:text-xl">
-          Senior software engineer with 7 years of experience specializing in AI
-          integration and full-stack development. React, Node.js, and building
-          SaaS systems from scratch.
+          Senior full-stack developer with 7 years of experience in web
+          application development, API integration, and system building.
+          Experienced in React, Node.js, and building complete SaaS applications
+          from initial version to production use with thousands of users.
         </p>
         <div className="flex flex-wrap gap-4">
           <a

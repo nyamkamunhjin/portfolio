@@ -12,21 +12,21 @@ import {
 
 const projects = [
   {
-    title: "Convex AI",
-    company: "Convex",
-    period: "02/2026",
+    title: "Convex",
+    company: "Side Project",
+    period: "February 2026",
     description:
-      "A next-generation AI-powered messenger platform delivering intelligent, automated customer service. Unifies Facebook Messenger, Instagram, Viber, and more into a single inbox.",
-    tags: ["AI", "React", "Node.js", "Multi-Platform"],
+      "A multi-channel messaging platform that unifies Facebook Messenger, Instagram, Viber, and other services into one inbox for businesses to manage customer conversations.",
+    tags: ["React", "Node.js", "Multi-Platform"],
     accent: "secondary" as const,
     link: "https://con-vex.co",
   },
   {
     title: "Puck Finance",
-    company: "Automatic Crypto Trading Bot",
-    period: "08/2023",
+    company: "Side Project",
+    period: "August 2023",
     description:
-      "Built an API connecting TradingView signals to Binance API for automated futures trading. Integrated with a Discord bot for tracking trades, balance, and P&L.",
+      "Built an API to connect TradingView signals to the Binance API for automated futures trading. Integrated a Discord bot for trade tracking, balance monitoring, and profit/loss reporting. Currently used for personal automated trading.",
     tags: ["Go", "Trading", "API", "Discord"],
     accent: "accent" as const,
     link: "https://puck.live",
@@ -37,12 +37,12 @@ const certifications = [
   {
     name: "Certified Blockchain Expert",
     issuer: "Blockchain Council",
-    period: "04/2022 — Present",
+    period: "April 2022 – Present",
   },
   {
     name: "AWS Certified Solutions Architect",
     issuer: "AWS",
-    period: "07/2021 — 07/2024",
+    period: "July 2021 – July 2024",
   },
 ]
 
@@ -50,7 +50,7 @@ const education = {
   degree: "Bachelor's Degree in Computer Science",
   school: "National University of Mongolia",
   location: "Ulaanbaatar, Mongolia",
-  period: "01/2016 — 01/2020",
+  period: "January 2016 – January 2020",
 }
 
 export function ProjectsSection() {
