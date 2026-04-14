@@ -9,6 +9,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@workspace/ui/components/card"
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 
 const projects = [
   {
@@ -57,7 +58,7 @@ export function ProjectsSection() {
   return (
     <>
       <section className="mx-auto max-w-7xl px-8 py-32" id="projects">
-        <div className="mb-16 flex items-end justify-between">
+        <FadeIn className="mb-16 flex items-end justify-between">
           <div>
             <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
               Side Projects
@@ -71,62 +72,64 @@ export function ProjectsSection() {
           <span className="hidden text-sm tracking-widest text-secondary md:block">
             001 — {String(projects.length).padStart(3, "0")}
           </span>
-        </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        </FadeIn>
+        <StaggerContainer
+          className="grid grid-cols-1 gap-8 md:grid-cols-2"
+          staggerDelay={0.12}
+        >
           {projects.map((project) => (
-            <Card
-              key={project.title}
-              className="group border-border/10 transition-colors hover:border-border/30"
-            >
-              <CardHeader className="p-6 pb-0">
-                <div className="mb-2 flex items-center justify-between">
-                  <Badge
-                    variant="outline"
-                    className={`text-xs ${
-                      project.accent === "secondary"
-                        ? "border-secondary/20 bg-secondary/10 text-secondary"
-                        : "border-accent/20 bg-accent/10 text-accent"
-                    }`}
-                  >
-                    {project.period}
-                  </Badge>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    <ArrowUpRight className="size-4" />
-                  </a>
-                </div>
-                <CardTitle className="text-xl">{project.title}</CardTitle>
-                <CardDescription className="text-sm">
-                  {project.company}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-6">
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded bg-surface-container-highest px-2 py-1 text-xs text-muted-foreground"
+            <StaggerItem key={project.title}>
+              <Card className="group h-full border-border/10 transition-colors hover:border-border/30">
+                <CardHeader className="p-6 pb-0">
+                  <div className="mb-2 flex items-center justify-between">
+                    <Badge
+                      variant="outline"
+                      className={`text-xs ${
+                        project.accent === "secondary"
+                          ? "border-secondary/20 bg-secondary/10 text-secondary"
+                          : "border-accent/20 bg-accent/10 text-accent"
+                      }`}
                     >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                      {project.period}
+                    </Badge>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      <ArrowUpRight className="size-4" />
+                    </a>
+                  </div>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <CardDescription className="text-sm">
+                    {project.company}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded bg-surface-container-highest px-2 py-1 text-xs text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       <section className="bg-surface-container-low py-32">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-8 lg:grid-cols-2">
-          <div>
+          <FadeIn>
             <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
               Education
             </span>
@@ -140,8 +143,8 @@ export function ProjectsSection() {
                 </p>
               </CardContent>
             </Card>
-          </div>
-          <div>
+          </FadeIn>
+          <FadeIn delay={0.15}>
             <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
               Credentials
             </span>
@@ -158,7 +161,7 @@ export function ProjectsSection() {
                 </Card>
               ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
     </>

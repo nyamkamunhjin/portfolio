@@ -3,6 +3,7 @@
 import { Badge } from "@workspace/ui/components/badge"
 import { Card, CardContent } from "@workspace/ui/components/card"
 import { Target, Lightning, Cube, CodeBlock } from "@phosphor-icons/react"
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 
 const skills = {
   Languages: ["Go", "JavaScript", "Python", "SQL", "TypeScript", "Pine Script"],
@@ -61,7 +62,7 @@ export function AboutSection() {
   return (
     <section className="mx-auto max-w-7xl px-8 py-32" id="about">
       <div className="flex flex-col gap-12">
-        <div>
+        <FadeIn>
           <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
             About Me
           </span>
@@ -77,12 +78,12 @@ export function AboutSection() {
             integrations, front-end development, and cross-functional
             collaboration between engineering and product teams.
           </p>
-        </div>
-        <div>
+        </FadeIn>
+        <FadeIn delay={0.1}>
           <h3 className="mb-6 text-lg font-semibold">Skills & Technologies</h3>
-          <div className="flex flex-col gap-6">
+          <StaggerContainer className="flex flex-col gap-6" staggerDelay={0.06}>
             {Object.entries(skills).map(([category, items]) => (
-              <div key={category}>
+              <StaggerItem key={category}>
                 <h4 className="mb-3 text-sm tracking-widest text-muted-foreground uppercase">
                   {category}
                 </h4>
@@ -97,23 +98,28 @@ export function AboutSection() {
                     </Badge>
                   ))}
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          </StaggerContainer>
+        </FadeIn>
+        <StaggerContainer
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+          staggerDelay={0.1}
+        >
           {features.map((feature) => (
-            <Card key={feature.title} className="border-border/10">
-              <CardContent className="flex flex-col gap-3 p-6">
-                <feature.icon className="size-6 text-secondary" />
-                <h4 className="text-base font-bold">{feature.title}</h4>
-                <p className="text-sm text-muted-foreground">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
+            <StaggerItem key={feature.title}>
+              <Card className="h-full border-border/10">
+                <CardContent className="flex flex-col gap-3 p-6">
+                  <feature.icon className="size-6 text-secondary" />
+                  <h4 className="text-base font-bold">{feature.title}</h4>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

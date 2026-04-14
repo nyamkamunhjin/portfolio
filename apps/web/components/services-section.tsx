@@ -2,6 +2,7 @@
 
 import { Rocket, Robot, PlugsConnected, Layout } from "@phosphor-icons/react"
 import { Card, CardContent } from "@workspace/ui/components/card"
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 
 const services = [
   {
@@ -38,7 +39,7 @@ export function ServicesSection() {
   return (
     <section className="bg-surface-container-low py-32" id="services">
       <div className="mx-auto max-w-7xl px-8">
-        <div className="mb-16">
+        <FadeIn className="mb-16">
           <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
             Services
           </span>
@@ -47,43 +48,45 @@ export function ServicesSection() {
             Contract-based development work. I build complete systems based on
             your business requirements — from architecture to production.
           </p>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        </FadeIn>
+        <StaggerContainer
+          className="grid grid-cols-1 gap-6 md:grid-cols-2"
+          staggerDelay={0.1}
+        >
           {services.map((service) => (
-            <Card
-              key={service.title}
-              className="border-border/10 transition-colors hover:border-border/30"
-            >
-              <CardContent className="flex flex-col gap-4 p-8">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-secondary/10">
-                  <service.icon className="size-6 text-secondary" />
-                </div>
-                <h3 className="text-xl font-bold">{service.title}</h3>
-                <p className="leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded bg-surface-container-highest px-2.5 py-1 text-xs text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <StaggerItem key={service.title}>
+              <Card className="h-full border-border/10 transition-colors hover:border-border/30">
+                <CardContent className="flex flex-col gap-4 p-8">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-secondary/10">
+                    <service.icon className="size-6 text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold">{service.title}</h3>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded bg-surface-container-highest px-2.5 py-1 text-xs text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           ))}
-        </div>
-        <div className="mt-12 text-center">
+        </StaggerContainer>
+        <FadeIn delay={0.4} className="mt-12 text-center">
           <a
             className="inline-flex items-center gap-2 text-lg font-bold text-secondary transition-all hover:gap-3"
             href="#contact"
           >
             Have a project in mind? Let&apos;s talk.
           </a>
-        </div>
+        </FadeIn>
       </div>
     </section>
   )

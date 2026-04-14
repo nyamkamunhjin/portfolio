@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Badge } from "@workspace/ui/components/badge"
 import { CaretDown } from "@phosphor-icons/react"
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/fade-in"
 
 const experiences = [
   {
@@ -93,75 +94,80 @@ export function ExperienceSection() {
   return (
     <section className="py-32" id="experience">
       <div className="mx-auto max-w-7xl px-8">
-        <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
-          Work Experience
-        </span>
-        <h2 className="mb-16 text-4xl font-bold">Where I&apos;ve Worked</h2>
+        <FadeIn>
+          <span className="mb-4 block text-sm tracking-widest text-secondary uppercase">
+            Work Experience
+          </span>
+          <h2 className="mb-16 text-4xl font-bold">Where I&apos;ve Worked</h2>
+        </FadeIn>
         <div className="flex flex-col gap-12">
-          {experiences.map((exp) => (
-            <div
-              key={`${exp.company}-${exp.period}`}
-              className="relative border-l-4 pl-12"
-              style={{
-                borderLeftColor: exp.active ? "#9093ff" : "rgba(73,72,71,0.3)",
-              }}
-            >
-              {exp.active && (
-                <div className="absolute top-0 -left-[10px] size-4 rounded-full bg-secondary shadow-[0_0_15px_#9093ff]" />
-              )}
-              <div className="mb-2 flex flex-col justify-between gap-2 md:flex-row md:items-center">
-                <h3 className="text-2xl font-bold">{exp.role}</h3>
-                <span
-                  className={
-                    exp.active ? "text-secondary" : "text-muted-foreground"
-                  }
-                >
-                  {exp.period}
-                </span>
-              </div>
-              <div className="mb-4 flex items-center gap-3">
-                <h4
-                  className={`text-lg font-semibold ${exp.active ? "text-accent" : "text-muted-foreground"}`}
-                >
-                  {exp.company}
-                </h4>
-                {exp.location && (
-                  <span className="text-sm text-muted-foreground">
-                    &bull; {exp.location}
-                  </span>
+          {experiences.map((exp, i) => (
+            <FadeIn key={`${exp.company}-${exp.period}`} delay={i * 0.1}>
+              <div
+                className="relative border-l-4 pl-12"
+                style={{
+                  borderLeftColor: exp.active
+                    ? "#9093ff"
+                    : "rgba(73,72,71,0.3)",
+                }}
+              >
+                {exp.active && (
+                  <div className="absolute top-0 -left-[10px] size-4 rounded-full bg-secondary shadow-[0_0_15px_#9093ff]" />
                 )}
-                <Badge
-                  variant="outline"
-                  className="border-border/20 text-xs text-muted-foreground"
-                >
-                  {exp.type}
-                </Badge>
-              </div>
-              <ul className="mb-4 flex max-w-3xl flex-col gap-2">
-                {exp.highlights.map((highlight, i) => (
-                  <li
-                    key={i}
-                    className="relative pl-4 leading-relaxed text-muted-foreground before:absolute before:top-[10px] before:left-0 before:size-1.5 before:rounded-full before:bg-border before:content-['']"
-                  >
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
+                <div className="mb-2 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+                  <h3 className="text-2xl font-bold">{exp.role}</h3>
                   <span
-                    key={tag}
-                    className="rounded bg-secondary/10 px-2.5 py-1 text-xs text-secondary uppercase"
+                    className={
+                      exp.active ? "text-secondary" : "text-muted-foreground"
+                    }
                   >
-                    {tag}
+                    {exp.period}
                   </span>
-                ))}
+                </div>
+                <div className="mb-4 flex items-center gap-3">
+                  <h4
+                    className={`text-lg font-semibold ${exp.active ? "text-accent" : "text-muted-foreground"}`}
+                  >
+                    {exp.company}
+                  </h4>
+                  {exp.location && (
+                    <span className="text-sm text-muted-foreground">
+                      &bull; {exp.location}
+                    </span>
+                  )}
+                  <Badge
+                    variant="outline"
+                    className="border-border/20 text-xs text-muted-foreground"
+                  >
+                    {exp.type}
+                  </Badge>
+                </div>
+                <ul className="mb-4 flex max-w-3xl flex-col gap-2">
+                  {exp.highlights.map((highlight, j) => (
+                    <li
+                      key={j}
+                      className="relative pl-4 leading-relaxed text-muted-foreground before:absolute before:top-[10px] before:left-0 before:size-1.5 before:rounded-full before:bg-border before:content-['']"
+                    >
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded bg-secondary/10 px-2.5 py-1 text-xs text-secondary uppercase"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </FadeIn>
           ))}
         </div>
 
-        <div className="mt-12">
+        <FadeIn delay={0.3} className="mt-12">
           <button
             className="flex items-center gap-2 font-medium text-muted-foreground transition-colors hover:text-foreground"
             onClick={() => setShowEarlier(!showEarlier)}
@@ -174,12 +180,17 @@ export function ExperienceSection() {
           </button>
 
           {showEarlier && (
-            <div
+            <StaggerContainer
               className="mt-8 flex flex-col gap-8 border-l-4 pl-12"
-              style={{ borderLeftColor: "rgba(73,72,71,0.15)" }}
+              staggerDelay={0.08}
+              style={
+                {
+                  borderLeftColor: "rgba(73,72,71,0.15)",
+                } as React.CSSProperties
+              }
             >
               {earlierExperiences.map((exp) => (
-                <div key={`${exp.company}-${exp.period}`}>
+                <StaggerItem key={`${exp.company}-${exp.period}`}>
                   <div className="mb-2 flex flex-col justify-between gap-2 md:flex-row md:items-center">
                     <h3 className="text-lg font-bold text-muted-foreground">
                       {exp.role}
@@ -198,20 +209,20 @@ export function ExperienceSection() {
                     </Badge>
                   </div>
                   <ul className="flex max-w-3xl flex-col gap-1.5">
-                    {exp.highlights.map((highlight, i) => (
+                    {exp.highlights.map((highlight, j) => (
                       <li
-                        key={i}
+                        key={j}
                         className="relative pl-4 text-sm leading-relaxed text-muted-foreground before:absolute before:top-[10px] before:left-0 before:size-1.5 before:rounded-full before:bg-border/50 before:content-['']"
                       >
                         {highlight}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerContainer>
           )}
-        </div>
+        </FadeIn>
       </div>
     </section>
   )
